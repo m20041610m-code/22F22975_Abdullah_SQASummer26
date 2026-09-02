@@ -1,4 +1,3 @@
-```python
 OVERLOAD_THRESHOLD = 1.0
 NEAR_CAPACITY_THRESHOLD = 0.85
 
@@ -26,4 +25,3 @@ def analyze_department_demand(departments):
         })
 
     return results
-```
