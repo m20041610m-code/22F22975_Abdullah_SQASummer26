@@ -1,7 +1,10 @@
 ```python
+OVERLOAD_THRESHOLD = 1.0
+NEAR_CAPACITY_THRESHOLD = 0.85
+
+
 def analyze_department_demand(departments):
     results = []
-    processed_count = 0
 
     for dept in departments:
         name = dept['name']
@@ -9,9 +12,9 @@ def analyze_department_demand(departments):
         capacity = dept['capacity']
         utilization = visits / capacity
 
-        if utilization > 1.0:
+        if utilization > OVERLOAD_THRESHOLD:
             status = "Overloaded"
-        elif utilization >= 0.85:
+        elif utilization >= NEAR_CAPACITY_THRESHOLD:
             status = "Near Capacity"
         else:
             status = "Normal"
@@ -22,8 +25,5 @@ def analyze_department_demand(departments):
             'status': status,
         })
 
-        processed_count += 1
-
-    print(f"Departments processed: {processed_count}")
     return results
 ```
